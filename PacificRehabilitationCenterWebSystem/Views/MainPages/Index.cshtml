@@ -1,0 +1,305 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<body ng-controller="WelcomeController" ng-init="welcomeMessage()">
+    <div class="home-page">
+
+        <!-- Section #1: Header -->
+        <section class="relative overflow-hidden bg-[#006F63]" aria-labelledby="hero-title">
+            <img src="https://images.pexels.com/photos/20860617/pexels-photo-20860617.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                 alt="Physiotherapist assisting a patient during a therapy exercise"
+                 class="hero-photo absolute inset-0 w-full h-full object-cover object-center"
+                 fetchpriority="high" />
+
+            <div class="hero-scrim absolute inset-0" aria-hidden="true"></div>
+
+            <div class="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 min-h-[520px] sm:min-h-[600px] lg:min-h-[720px] flex items-center py-20">
+                <div class="hero-copy max-w-3xl">
+
+                    <h1 id="hero-title" class="text-white text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight">
+                        Pacific Rehabilitation Center, Inc.
+                    </h1>
+
+                    <p class="text-white text-base sm:text-lg leading-relaxed max-w-xl mt-6">
+                        Personalized physical, occupational, and speech therapy to help you move forward with confidence.
+                    </p>
+
+                    <ul class="flex flex-wrap gap-3 mt-7">
+                        <li class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white font-semibold pl-3 pr-4 py-2 rounded-full">
+                            <span class="material-icons text-2xl" aria-hidden="true">accessibility_new</span>
+                            Physical
+                        </li>
+
+                        <li class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white font-semibold pl-3 pr-4 py-2 rounded-full">
+                            <span class="material-icons text-2xl" aria-hidden="true">volunteer_activism</span>
+                            Occupational
+                        </li>
+
+                        <li class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white font-semibold pl-3 pr-4 py-2 rounded-full">
+                            <span class="material-icons text-2xl" aria-hidden="true">record_voice_over</span>
+                            Speech
+                        </li>
+                    </ul>
+
+                    <div class="flex flex-col sm:flex-row gap-3 mt-9">
+                        <a href="@Url.Action("Contact", "MainPages")"
+                           class="inline-flex items-center justify-center gap-2 bg-[#008C78] hover:bg-[#006F63] text-white font-semibold px-7 py-3.5 rounded-xl transition-colors">
+                            Contact Us
+                            <span class="material-icons text-xl" aria-hidden="true">arrow_forward</span>
+                        </a>
+
+                        <a href="#services"
+                           class="inline-flex items-center justify-center bg-white hover:bg-[#EAF5F2] text-[#006F63] font-semibold px-7 py-3.5 rounded-xl transition-colors">
+                            Our Services
+                        </a>
+                    </div>
+
+                    <p class="text-white text-sm font-medium mt-8 flex items-center gap-2">
+                        <span class="material-icons text-2xl" aria-hidden="true">location_on</span>
+                        Centers in Cabanatuan City and San Fernando City
+                    </p>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Section #2: Services -->
+        <section id="services" class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-16 lg:py-24 scroll-mt-24" aria-labelledby="services-title">
+
+            <h2 id="services-title" class="text-[#006F63] text-3xl sm:text-4xl font-extrabold leading-tight max-w-2xl">
+                Therapy for different needs and goals
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+
+                <!-- Physical Therapy -->
+                <article class="bg-[#EAF5F2] rounded-3xl p-8 flex flex-col">
+                    <span class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-[#008C78] text-white mb-6">
+                        <span class="material-icons text-5xl" aria-hidden="true">accessibility_new</span>
+                    </span>
+
+                    <h3 class="text-[#006F63] text-2xl font-extrabold mb-2">Physical Therapy</h3>
+
+                    <p class="text-[#334155] leading-relaxed">
+                        Care focused on movement, mobility, strength, and physical recovery.
+                    </p>
+
+                    <ul class="text-[#334155] leading-relaxed mt-5 space-y-2">
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons text-[#008C78] text-xl mt-0.5">check_circle</span>
+                            Recovery after injury or surgery
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons text-[#008C78] text-xl mt-0.5">check_circle</span>
+                            Balance and walking
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons text-[#008C78] text-xl mt-0.5">check_circle</span>
+                            Strength and flexibility
+                        </li>
+                    </ul>
+
+                    <a href="@Url.Action("Contact", "MainPages")"
+                       class="service-link inline-flex items-center gap-1 text-[#006F63] font-bold mt-auto pt-6">
+                        Ask about physical therapy
+                        <span class="material-icons text-xl">arrow_forward</span>
+                    </a>
+                </article>
+
+                <!-- Occupational Therapy -->
+                <article class="bg-[#EAF5F2] rounded-3xl p-8 flex flex-col">
+                    <span class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-[#008C78] text-white mb-6">
+                        <span class="material-icons text-5xl" aria-hidden="true">volunteer_activism</span>
+                    </span>
+
+                    <h3 class="text-[#006F63] text-2xl font-extrabold mb-2">Occupational Therapy</h3>
+
+                    <p class="text-[#334155] leading-relaxed">
+                        Support for everyday activities, practical skills, and independence.
+                    </p>
+
+                    <ul class="text-[#334155] leading-relaxed mt-5 space-y-2">
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons text-[#008C78] text-xl mt-0.5">check_circle</span>
+                            Daily living skills
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons text-[#008C78] text-xl mt-0.5">check_circle</span>
+                            Hand and fine motor function
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons text-[#008C78] text-xl mt-0.5">check_circle</span>
+                            Routines at home, school, or work
+                        </li>
+                    </ul>
+
+                    <a href="@Url.Action("Contact", "MainPages")"
+                       class="service-link inline-flex items-center gap-1 text-[#006F63] font-bold mt-auto pt-6">
+                        Ask about occupational therapy
+                        <span class="material-icons text-xl">arrow_forward</span>
+                    </a>
+                </article>
+
+                <!-- Speech Therapy -->
+                <article class="bg-[#EAF5F2] rounded-3xl p-8 flex flex-col">
+                    <span class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-[#008C78] text-white mb-6">
+                        <span class="material-icons text-5xl" aria-hidden="true">record_voice_over</span>
+                    </span>
+
+                    <h3 class="text-[#006F63] text-2xl font-extrabold mb-2">Speech Therapy</h3>
+
+                    <p class="text-[#334155] leading-relaxed">
+                        Support for speech, language, and communication skills.
+                    </p>
+
+                    <ul class="text-[#334155] leading-relaxed mt-5 space-y-2">
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons text-[#008C78] text-xl mt-0.5">check_circle</span>
+                            Clear speech and pronunciation
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons text-[#008C78] text-xl mt-0.5">check_circle</span>
+                            Language development
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-icons text-[#008C78] text-xl mt-0.5">check_circle</span>
+                            Everyday communication
+                        </li>
+                    </ul>
+
+                    <a href="@Url.Action("Contact", "MainPages")"
+                       class="service-link inline-flex items-center gap-1 text-[#006F63] font-bold mt-auto pt-6">
+                        Ask about speech therapy
+                        <span class="material-icons text-xl">arrow_forward</span>
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Section #3: Getting Started -->
+        <section class="border-t border-[#D3E8E1]" aria-labelledby="steps-title">
+            <div class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-10 lg:gap-16">
+
+                <div>
+                    <h2 id="steps-title" class="text-[#006F63] text-3xl sm:text-4xl font-extrabold leading-tight">
+                        How getting started works
+                    </h2>
+
+                    <p class="text-[#334155] leading-relaxed mt-4 max-w-md">
+                        Three steps from your first message to a plan built around you.
+                    </p>
+                </div>
+
+                <ol>
+
+                    <!-- Step #1 -->
+                    <li class="flex gap-5 pb-8">
+                        <div class="flex flex-col items-center">
+                            <span class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#008C78] text-white shrink-0">
+                                <span class="material-icons text-4xl">chat</span>
+                            </span>
+                            <span class="flex-1 w-0.5 bg-[#BFE0D6] my-2"></span>
+                        </div>
+
+                        <div class="pt-2">
+                            <p class="text-[#008C78] text-sm font-bold">Step 1</p>
+                            <h3 class="text-[#006F63] text-xl font-extrabold mb-1">Get in touch</h3>
+                            <p class="text-[#334155] leading-relaxed">
+                                Tell us who the therapy is for and what you need help with.
+                            </p>
+                        </div>
+                    </li>
+
+                    <!-- Step #2 -->
+                    <li class="flex gap-5 pb-8">
+                        <div class="flex flex-col items-center">
+                            <span class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#008C78] text-white shrink-0">
+                                <span class="material-icons text-4xl">assignment</span>
+                            </span>
+                            <span class="flex-1 w-0.5 bg-[#BFE0D6] my-2"></span>
+                        </div>
+
+                        <div class="pt-2">
+                            <p class="text-[#008C78] text-sm font-bold">Step 2</p>
+                            <h3 class="text-[#006F63] text-xl font-extrabold mb-1">Meet your therapist</h3>
+                            <p class="text-[#334155] leading-relaxed">
+                                Your therapist looks at your needs and sets goals with you.
+                            </p>
+                        </div>
+                    </li>
+
+                    <!-- Step #3 -->
+                    <li class="flex gap-5">
+                        <div class="flex flex-col items-center">
+                            <span class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#008C78] text-white shrink-0">
+                                <span class="material-icons text-4xl">trending_up</span>
+                            </span>
+                        </div>
+
+                        <div class="pt-2">
+                            <p class="text-[#008C78] text-sm font-bold">Step 3</p>
+                            <h3 class="text-[#006F63] text-xl font-extrabold mb-1">Begin your plan</h3>
+                            <p class="text-[#334155] leading-relaxed">
+                                Sessions follow your goals, and the plan changes as you progress.
+                            </p>
+                        </div>
+                    </li>
+
+                </ol>
+            </div>
+        </section>
+
+        <!-- Section #4: Locations -->
+        <section class="bg-[#EAF5F2]" aria-labelledby="locations-title">
+            <div class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-16 lg:py-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:items-center">
+
+                    <div>
+                        <h2 id="locations-title" class="text-[#006F63] text-3xl sm:text-4xl font-extrabold leading-tight">
+                            Visit us at either location
+                        </h2>
+
+                        <p class="text-[#334155] leading-relaxed mt-4 max-w-lg">
+                            Not sure which center is closer or which service fits? Our team can help you decide.
+                        </p>
+
+                        <a href="@Url.Action("Contact", "MainPages")"
+                           class="inline-flex items-center justify-center gap-2 bg-[#008C78] hover:bg-[#006F63] text-white font-semibold px-7 py-3.5 rounded-xl mt-8 transition-colors">
+                            Contact us
+                            <span class="material-icons text-xl">arrow_forward</span>
+                        </a>
+                    </div>
+
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <li class="bg-white rounded-3xl p-6 flex items-center gap-4">
+                            <span class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#008C78] text-white shrink-0">
+                                <span class="material-icons text-4xl">location_on</span>
+                            </span>
+
+                            <div>
+                                <p class="text-[#006F63] text-lg font-bold">Cabanatuan City</p>
+                                <p class="text-[#64748B] text-sm">Nueva Ecija</p>
+                            </div>
+                        </li>
+
+                        <li class="bg-white rounded-3xl p-6 flex items-center gap-4">
+                            <span class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#008C78] text-white shrink-0">
+                                <span class="material-icons text-4xl">location_on</span>
+                            </span>
+
+                            <div>
+                                <p class="text-[#006F63] text-lg font-bold">San Fernando City</p>
+                                <p class="text-[#64748B] text-sm">Pampanga</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </section>
+
+    </div>
+</body>

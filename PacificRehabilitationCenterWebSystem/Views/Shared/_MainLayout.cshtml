@@ -1,0 +1,883 @@
+﻿@{
+    Layout = "~/Views/Shared/_CentralizedLayout.cshtml";
+}
+<style>
+    /* Main Layout */
+    .prc-layout {
+        --prc-green: #008C78;
+        --prc-dark-green: #006F63;
+        --prc-text: #334155;
+        --prc-muted: #64748B;
+        --prc-border: #E2E8F0;
+        --prc-light: #EAF5F2;
+        --prc-light-border: #D3E8E1;
+        --prc-soft-green: #BFE0D6;
+        --prc-white: #FFFFFF;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background: var(--prc-white);
+        color: var(--prc-text);
+        font-family: 'Poppins', sans-serif;
+    }
+
+        .prc-layout *,
+        .prc-layout *::before,
+        .prc-layout *::after {
+            box-sizing: border-box;
+        }
+
+        .prc-layout a {
+            text-decoration: none;
+        }
+
+    /* Container */
+    .prc-container {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    /* Brand */
+    .prc-brand {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        min-width: 0;
+    }
+
+    .prc-brand-logo {
+        display: block;
+        width: 66px;
+        height: 66px;
+        flex: 0 0 66px;
+        object-fit: contain;
+    }
+
+    .prc-brand-text {
+        min-width: 0;
+    }
+
+    .prc-brand-name {
+        margin: 0;
+        color: var(--prc-green);
+        font-size: 21px;
+        font-weight: 700;
+        line-height: 1.3;
+    }
+
+    .prc-brand-subtitle {
+        margin: 5px 0 0;
+        color: var(--prc-muted);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.4;
+    }
+
+    /* Header */
+    .prc-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        width: 100%;
+        border-bottom: 1px solid var(--prc-border);
+        background: var(--prc-white);
+    }
+
+    .prc-header-inner {
+        min-height: 125px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+    }
+
+    .prc-header .prc-brand {
+        color: inherit;
+    }
+
+    /* Desktop Navigation */
+    .prc-desktop-nav {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        flex: 0 0 auto;
+    }
+
+    .prc-nav-link {
+        position: relative;
+        color: var(--prc-text);
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.5;
+        transition: color 0.2s ease;
+    }
+
+        .prc-nav-link:hover,
+        .prc-nav-link.active {
+            color: var(--prc-green);
+        }
+
+    .prc-desktop-nav .prc-nav-link.active::after {
+        position: absolute;
+        right: 0;
+        bottom: -9px;
+        left: 0;
+        height: 2px;
+        background: var(--prc-green);
+        content: "";
+    }
+
+    /* Login Button */
+    .prc-login-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 44px;
+        padding: 0 20px;
+        border-radius: 11px;
+        background: var(--prc-green);
+        color: var(--prc-white);
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1;
+        transition: background-color 0.2s ease;
+    }
+
+        .prc-login-link:hover {
+            background: var(--prc-dark-green);
+            color: var(--prc-white);
+        }
+
+        .prc-login-link .material-icons {
+            font-size: 20px;
+            line-height: 1;
+        }
+
+    /* Burger Button */
+    .prc-menu-button {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        flex: 0 0 44px;
+        padding: 0;
+        border: 0;
+        border-radius: 10px;
+        background: transparent;
+        color: var(--prc-green);
+        cursor: pointer;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+        .prc-menu-button:hover,
+        .prc-menu-button:active,
+        .prc-menu-button:focus-visible,
+        .prc-menu-button[aria-expanded="true"] {
+            background: #DDF3EE;
+            color: var(--prc-green);
+        }
+
+        .prc-menu-button .material-icons {
+            transition: transform 0.3s ease;
+        }
+
+        .prc-menu-button[aria-expanded="true"] .material-icons {
+            transform: rotate(90deg);
+        }
+
+    /* Mobile Navigation */
+    .prc-mobile-nav {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        border-top: 0 solid var(--prc-border);
+        background: var(--prc-white);
+        transition: max-height 0.35s ease, opacity 0.25s ease, visibility 0.35s, border-width 0.35s ease;
+    }
+
+        .prc-mobile-nav.open {
+            max-height: 350px;
+            opacity: 1;
+            visibility: visible;
+            border-top-width: 1px;
+        }
+
+    .prc-mobile-nav-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding-top: 16px;
+        padding-bottom: 20px;
+    }
+
+    .prc-mobile-nav .prc-nav-link {
+        display: block;
+        padding: 12px 14px;
+        border-radius: 9px;
+        font-size: 16px;
+    }
+
+        .prc-mobile-nav .prc-nav-link.active {
+            background: var(--prc-light);
+        }
+
+    .prc-mobile-nav .prc-login-link {
+        margin-top: 10px;
+    }
+
+    /* Main Content */
+    .prc-main {
+        width: 100%;
+        flex: 1 0 auto;
+    }
+
+    /* Content Layout */
+    .prc-content-layout {
+        width: 100%;
+    }
+
+    /* Main Pages */
+    .home-page,
+    .about-page,
+    .contact-page {
+        color: var(--prc-dark-green);
+    }
+
+        .home-page h1,
+        .home-page h2,
+        .about-page h1,
+        .about-page h2,
+        .contact-page h1,
+        .contact-page h2 {
+            text-wrap: balance;
+        }
+
+        /* Home Page */
+        .home-page .hero-photo {
+            animation: photoReveal 1.2s ease-out both;
+        }
+
+        .home-page .hero-scrim {
+            background: linear-gradient( 90deg, rgba(0, 63, 56, 0.88) 0%, rgba(0, 63, 56, 0.6) 45%, rgba(0, 63, 56, 0.25) 100% );
+        }
+
+        .home-page .hero-copy {
+            animation: copyReveal 0.8s ease-out 0.2s both;
+        }
+
+        .home-page .service-link {
+            transition: gap 0.2s ease;
+        }
+
+            .home-page .service-link:hover {
+                gap: 0.6rem;
+            }
+
+        /* About and Contact Header */
+        .about-page .page-header-enter,
+        .contact-page .page-header-enter {
+            animation: pageHeaderReveal 0.8s ease-out both;
+        }
+
+        /* Header Copy */
+        .about-page .page-header-copy,
+        .contact-page .page-header-copy {
+            animation: pageHeaderCopyReveal 0.8s ease-out 0.1s both;
+        }
+
+        /* Header Image */
+        .about-page .page-header-image,
+        .contact-page .page-header-image {
+            animation: pageHeaderImageReveal 1s ease-out 0.2s both;
+        }
+
+        /* Contact Page */
+        .contact-page .contact-link {
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+            .contact-page .contact-link:hover {
+                transform: translateX(4px);
+            }
+
+        /* Page Focus */
+        .home-page a:focus-visible,
+        .about-page a:focus-visible,
+        .contact-page a:focus-visible {
+            outline: 3px solid var(--prc-green);
+            outline-offset: 3px;
+        }
+
+        .home-page .hero-copy a:focus-visible,
+        .about-page .dark-panel a:focus-visible {
+            outline-color: var(--prc-white);
+        }
+
+    /* Home Image Animation */
+    @@keyframes photoReveal {
+        from {
+            transform: scale(1.05);
+        }
+
+        to {
+            transform: scale(1);
+        }
+    }
+
+    /* Home Copy Animation */
+    @@keyframes copyReveal {
+        from {
+            opacity: 0;
+            transform: translateY(16px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Page Header Animation */
+    @@keyframes pageHeaderReveal {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    /* Page Header Copy Animation */
+    @@keyframes pageHeaderCopyReveal {
+        from {
+            opacity: 0;
+            transform: translateY(16px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Page Header Image Animation */
+    @@keyframes pageHeaderImageReveal {
+        from {
+            opacity: 0;
+            transform: translateX(24px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    /* Footer */
+    .prc-footer {
+        width: 100%;
+        margin-top: 64px;
+        border-top: 1px solid var(--prc-border);
+        background: var(--prc-white);
+    }
+
+    .prc-footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 0.75fr 1fr;
+        gap: 64px;
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    .prc-footer .prc-brand {
+        margin-bottom: 18px;
+    }
+
+    .prc-footer-description {
+        max-width: 470px;
+        margin: 0;
+        color: var(--prc-muted);
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .prc-footer-heading {
+        margin: 4px 0 20px;
+        color: #1E293B;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+
+    .prc-footer-links {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+        .prc-footer-links li + li {
+            margin-top: 12px;
+        }
+
+    .prc-footer a {
+        color: var(--prc-muted);
+    }
+
+        .prc-footer a:hover {
+            color: var(--prc-green);
+        }
+
+    .prc-footer-links a {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    /* Social Links */
+    .prc-social-links {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 24px;
+    }
+
+        .prc-social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #F1F5F9;
+            color: var(--prc-green);
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+            .prc-social-links a:hover {
+                background: var(--prc-green);
+                color: var(--prc-white);
+            }
+
+        .prc-social-links .material-icons {
+            font-size: 20px;
+            line-height: 1;
+        }
+
+    /* Contact Details */
+    .prc-contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 16px;
+        color: var(--prc-muted);
+        font-size: 15px;
+        line-height: 1.55;
+    }
+
+        .prc-contact-item > .material-icons {
+            flex: 0 0 auto;
+            color: var(--prc-green);
+            font-size: 21px;
+            line-height: 1.3;
+        }
+
+        .prc-contact-item strong {
+            display: block;
+            margin-bottom: 2px;
+            color: var(--prc-text);
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .prc-contact-item p {
+            margin: 0;
+        }
+
+        .prc-contact-item a {
+            overflow-wrap: anywhere;
+        }
+
+    /* Bottom Footer */
+    .prc-footer-bottom {
+        border-top: 1px solid var(--prc-border);
+    }
+
+    .prc-footer-bottom-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+
+    .prc-footer-bottom p {
+        margin: 0;
+        color: var(--prc-muted);
+        font-size: 14px;
+    }
+
+    .prc-legal-links {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    /* Tablet */
+    @@media (max-width: 1023px) {
+        .prc-desktop-nav {
+            display: none;
+        }
+
+        .prc-menu-button {
+            display: inline-flex;
+        }
+
+        .prc-footer-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 36px;
+        }
+
+        .prc-footer-about {
+            grid-column: 1 / -1;
+        }
+    }
+
+    /* Desktop */
+    @@media (min-width: 1024px) {
+        .prc-mobile-nav,
+        .prc-mobile-nav.open {
+            display: none;
+        }
+    }
+
+    /* Phone */
+    @@media (max-width: 640px) {
+        .prc-container {
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        .prc-header-inner {
+            min-height: 125px;
+            gap: 12px;
+        }
+
+        .prc-brand {
+            gap: 12px;
+        }
+
+        .prc-brand-logo {
+            width: 52px;
+            height: 52px;
+            flex-basis: 52px;
+        }
+
+        .prc-brand-name {
+            font-size: 17px;
+            line-height: 1.25;
+        }
+
+        .prc-brand-subtitle {
+            margin-top: 5px;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .prc-footer-grid {
+            grid-template-columns: 1fr;
+            gap: 32px;
+            padding-top: 36px;
+            padding-bottom: 36px;
+        }
+
+        .prc-footer-about {
+            grid-column: auto;
+        }
+
+        .prc-footer-heading {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .prc-footer-links a,
+        .prc-contact-item,
+        .prc-contact-item strong {
+            font-size: 14px;
+        }
+
+        .prc-footer-bottom-inner {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .prc-legal-links {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    /* Reduced Motion */
+    @@media (prefers-reduced-motion: reduce) {
+        .prc-mobile-nav,
+        .prc-menu-button .material-icons,
+        .home-page .service-link,
+        .contact-page .contact-link {
+            transition: none;
+        }
+
+        .home-page .hero-photo,
+        .home-page .hero-copy,
+        .about-page .page-header-enter,
+        .about-page .page-header-copy,
+        .about-page .page-header-image,
+        .contact-page .page-header-enter,
+        .contact-page .page-header-copy,
+        .contact-page .page-header-image {
+            animation: none;
+        }
+    }
+</style>
+
+<body>
+
+    <div class="prc-layout">
+
+        <!-- Section #1: Header -->
+        <header class="prc-header">
+            <div class="prc-container prc-header-inner">
+
+                <!-- Brand -->
+                <a href="@Url.Action("Index", "MainPages")" class="prc-brand">
+                    <img src="@Url.Content("~/Content/PRCLogo.png")"
+                         alt="Pacific Rehabilitation Center Logo"
+                         class="prc-brand-logo" />
+
+                    <div class="prc-brand-text">
+                        <p class="prc-brand-name">Pacific Rehabilitation Center, Inc.</p>
+                        <p class="prc-brand-subtitle">Physical • Occupational • Speech Therapy</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="prc-desktop-nav" aria-label="Main Navigation">
+                    <a href="@Url.Action("Index", "MainPages")"
+                       class="prc-nav-link @(ViewBag.Title == "Home" ? "active" : "")">
+                        Home
+                    </a>
+
+                    <a href="@Url.Action("About", "MainPages")"
+                       class="prc-nav-link @(ViewBag.Title == "About" ? "active" : "")">
+                        About
+                    </a>
+
+                    <a href="@Url.Action("Contact", "MainPages")"
+                       class="prc-nav-link @(ViewBag.Title == "Contact" ? "active" : "")">
+                        Contact
+                    </a>
+
+                    <a href="@Url.Action("Login", "AuthenticationPages")" class="prc-login-link">
+                        <span class="material-icons">login</span>
+                        Login
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button type="button"
+                        class="prc-menu-button"
+                        id="prcMenuButton"
+                        aria-label="Open navigation menu"
+                        aria-controls="prcMobileNav"
+                        aria-expanded="false">
+                    <span class="material-icons">menu</span>
+                </button>
+
+            </div>
+
+            <!-- Mobile Navigation -->
+            <nav class="prc-mobile-nav" id="prcMobileNav" aria-label="Mobile Navigation">
+                <div class="prc-container prc-mobile-nav-inner">
+
+                    <a href="@Url.Action("Index", "MainPages")"
+                       class="prc-nav-link @(ViewBag.Title == "Home" ? "active" : "")">
+                        Home
+                    </a>
+
+                    <a href="@Url.Action("About", "MainPages")"
+                       class="prc-nav-link @(ViewBag.Title == "About" ? "active" : "")">
+                        About
+                    </a>
+
+                    <a href="@Url.Action("Contact", "MainPages")"
+                       class="prc-nav-link @(ViewBag.Title == "Contact" ? "active" : "")">
+                        Contact
+                    </a>
+
+                    <a href="@Url.Action("Login", "Login")" class="prc-login-link">
+                        <span class="material-icons">login</span>
+                        Login
+                    </a>
+
+                </div>
+            </nav>
+        </header>
+
+        <!-- Section #2: Main Content -->
+        <main class="prc-main">
+            @RenderBody()
+        </main>
+
+        <!-- Section #3: Footer -->
+        <footer class="prc-footer">
+            <div class="prc-container">
+
+                <div class="prc-footer-grid">
+
+                    <!-- About -->
+                    <div class="prc-footer-about">
+                        <div class="prc-brand">
+                            <img src="@Url.Content("~/Content/PRCLogo.png")"
+                                 alt="Pacific Rehabilitation Center Logo"
+                                 class="prc-brand-logo" />
+
+                            <div class="prc-brand-text">
+                                <p class="prc-brand-name">Pacific Rehabilitation Center, Inc.</p>
+                                <p class="prc-brand-subtitle">Physical • Occupational • Speech Therapy</p>
+                            </div>
+                        </div>
+
+                        <p class="prc-footer-description">
+                            Providing personalized rehabilitation services to help patients improve mobility, independence, communication, and quality of life.
+                        </p>
+
+                        <div class="prc-social-links">
+                            <a href="https://www.facebook.com/pacificrehabcenter"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="Facebook">
+                                <span class="material-icons">public</span>
+                            </a>
+
+                            <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40pacificrehabcenter.com"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="Email">
+                                <span class="material-icons">email</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div>
+                        <h2 class="prc-footer-heading">Quick Links</h2>
+
+                        <ul class="prc-footer-links">
+                            <li>
+                                <a href="@Url.Action("Index", "MainPages")">Home</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("About", "MainPages")">About</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Contact", "MainPages")">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Login", "AuthenticationPages")">Login</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div>
+                        <h2 class="prc-footer-heading">Contact Us</h2>
+
+                        <div class="prc-contact-item">
+                            <span class="material-icons">location_on</span>
+                            <div>
+                                <strong>Cabanatuan City</strong>
+                                <p>Melencio Extension corner Doña Isabel Avenue, Barangay Kapitan Pepe, Cabanatuan City, Nueva Ecija</p>
+                            </div>
+                        </div>
+
+                        <div class="prc-contact-item">
+                            <span class="material-icons">location_on</span>
+                            <div>
+                                <strong>San Fernando City</strong>
+                                <p>Pampanga</p>
+                            </div>
+                        </div>
+
+                        <div class="prc-contact-item">
+                            <span class="material-icons">phone</span>
+                            <div>
+                                <strong>Phone</strong>
+                                <a href="tel:+63441234567">(044) 123-4567</a>
+                            </div>
+                        </div>
+
+                        <div class="prc-contact-item">
+                            <span class="material-icons">email</span>
+                            <div>
+                                <strong>Email</strong>
+                                <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40pacificrehabcenter.com"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    info@pacificrehabcenter.com
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Bottom Footer -->
+                <div class="prc-footer-bottom">
+                    <div class="prc-footer-bottom-inner">
+                        <p>&copy; @DateTime.Now.Year Pacific Rehabilitation Center, Inc. All rights reserved.</p>
+
+                        <div class="prc-legal-links">
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Terms of Use</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+<!-- Mobile View (Mobile View Hamburger Menu) -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var menuButton = document.getElementById("prcMenuButton");
+        var mobileNav = document.getElementById("prcMobileNav");
+
+        if (!menuButton || !mobileNav) {
+            return;
+        }
+
+        menuButton.addEventListener("click", function () {
+            var isOpen = mobileNav.classList.toggle("open");
+
+            menuButton.setAttribute("aria-expanded", isOpen);
+
+            var menuIcon = menuButton.querySelector(".material-icons");
+
+            if (menuIcon) {
+                menuIcon.textContent = isOpen ? "close" : "menu";
+            }
+        });
+    });
+</script>

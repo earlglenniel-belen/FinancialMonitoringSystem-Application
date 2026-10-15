@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title • Pacific Rehabilitation Center</title>
+
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/themes/material-ui/material-ui.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="~/Content/PRCLogo.png">
+
+    <!-- Tailwind CSS -->
+    @{ var tailwindUrl = "https://cdn.jsdelivr.net/npm/" + "@tailwindcss/browser@4"; }
+    <script src="@tailwindUrl"></script>
+
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+
+        /* Main */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Loading Screen */
+        #pageLoader {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #FFFFFF;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+            /* Loading Screen Hidden */
+            #pageLoader.loader-hidden {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
+
+        /* Loading Content */
+        .loader-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* Loading Logo */
+        .loader-logo {
+            width: 110px;
+            height: 110px;
+            object-fit: contain;
+            animation: loaderLogo 1.4s ease-in-out infinite;
+        }
+
+        /* Loading Title */
+        .loader-title {
+            margin-top: 18px;
+            margin-bottom: 4px;
+            color: #006F63;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        /* Loading Subtitle */
+        .loader-subtitle {
+            margin: 0;
+            color: #64748B;
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        /* Loading Spinner */
+        .loader-spinner {
+            width: 32px;
+            height: 32px;
+            margin-top: 22px;
+            border: 3px solid #D3E8E1;
+            border-top-color: #008C78;
+            border-radius: 50%;
+            animation: loaderSpin 0.8s linear infinite;
+        }
+
+        /* Logo Animation */
+        @@keyframes loaderLogo {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 0.85;
+            }
+        }
+
+        /* Spinner Animation */
+        @@keyframes loaderSpin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* SweetAlert Delete Button */
+        .swal2-confirm.delete-confirm-button {
+            background-color: #D32F2F !important;
+            color: #FFFFFF !important;
+        }
+
+            .swal2-confirm.delete-confirm-button:hover {
+                background-color: #B71C1C !important;
+            }
+
+        /* Reduced Motion */
+        @@media (prefers-reduced-motion: reduce) {
+            .loader-logo,
+            .loader-spinner {
+                animation: none;
+            }
+
+            #pageLoader {
+                transition: none;
+            }
+        }
+    </style>
+
+</head>
+
+<body ng-app="PacificRehabilitationCenterWebSystemModule">
+
+    <!-- Loading Screen -->
+    <div id="pageLoader">
+        <div class="loader-content">
+
+            <img src="@Url.Content("~/Content/PRCLogo.png")"
+                 alt="Pacific Rehabilitation Center"
+                 class="loader-logo" />
+
+            <p class="loader-title">
+                Pacific Rehabilitation Center, Inc.
+            </p>
+
+            <p class="loader-subtitle">
+                Physical • Occupational • Speech Therapy
+            </p>
+
+            <div class="loader-spinner"></div>
+
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div>
+        @RenderBody()
+    </div>
+
+    <!-- JQuery & AngularJS -->
+    <script src="~/Scripts/ExternalScripts/jquery-3.7.0.min.js"></script>
+    <script src="~/Scripts/ExternalScripts/AngularJS/angular.min.js"></script>
+    <script src="~/Scripts/WebsiteScripts/Module.js"></script>
+    <script src="~/Scripts/WebsiteScripts/Service.js"></script>
+
+    <!-- Controllers -->
+    <script src="~/Scripts/WebsiteScripts/RegistrationController.js"></script>
+    <script src="~/Scripts/WebsiteScripts/LoginController.js"></script>
+    <script src="~/Scripts/WebsiteScripts/WelcomeController.js"></script>
+
+    <!-- Loading Screen Script -->
+    <script>
+        window.addEventListener("load", function () {
+
+            var loader = document.getElementById("pageLoader");
+
+            if (loader) {
+                loader.classList.add("loader-hidden");
+            }
+
+        });
+    </script>
+
+</body>
+</html>

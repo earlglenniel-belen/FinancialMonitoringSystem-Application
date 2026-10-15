@@ -1,0 +1,548 @@
+﻿@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<body>
+    <div class="about-page">
+        <!-- Section #1: Header -->
+        <section class="bg-[#EAF5F2] border-b border-[#D3E8E1]" aria-labelledby="about-title">
+            <div class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-10 lg:py-14">
+
+                <!-- Breadcrumb -->
+                <nav aria-label="Breadcrumb" class="text-sm font-semibold">
+                    <ol class="flex items-center gap-1 text-[#334155]">
+                        <li>
+                            <a href="@Url.Content("~/")"
+                               class="hover:text-[#006F63] underline-offset-4 hover:underline">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <span class="material-icons text-base align-middle">
+                                chevron_right
+                            </span>
+                        </li>
+
+                        <li class="text-[#006F63]">
+                            About us
+                        </li>
+                    </ol>
+                </nav>
+
+                <!-- Header Content -->
+                <div class="page-header-enter grid grid-cols-1 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] gap-8 lg:gap-14 items-center mt-8">
+
+                    <!-- Header Copy -->
+                    <div class="page-header-copy">
+
+                        <h1 id="about-title"
+                            class="text-[#006F63] text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.12] tracking-tight">
+                            Every journey toward progress is personal.
+                        </h1>
+
+                        <p class="text-[#334155] text-base sm:text-lg leading-relaxed max-w-2xl mt-5">
+                            Pacific Rehabilitation Center, Inc. provides physical,
+                            occupational, and speech therapy guided by the needs and
+                            goals of each patient.
+                        </p>
+
+                        <!-- Information -->
+                        <dl class="flex flex-wrap gap-x-10 gap-y-5 mt-8 pt-7 border-t border-[#C8E2D9]">
+
+                            <!-- Locations -->
+                            <div>
+                                <dt class="text-[#4B6B65] text-sm flex items-center gap-1.5">
+                                    <span class="material-icons text-base">
+                                        location_on
+                                    </span>
+                                    Locations
+                                </dt>
+
+                                <dd class="text-[#006F63] text-2xl font-bold mt-1">
+                                    2 provinces
+                                </dd>
+                            </div>
+
+                            <!-- Therapy Disciplines -->
+                            <div>
+                                <dt class="text-[#4B6B65] text-sm flex items-center gap-1.5">
+                                    <span class="material-icons text-base">
+                                        medical_services
+                                    </span>
+                                    Therapy disciplines
+                                </dt>
+
+                                <dd class="text-[#006F63] text-2xl font-bold mt-1">
+                                    PT · OT · Speech
+                                </dd>
+                            </div>
+
+                            <!-- Approach -->
+                            <div>
+                                <dt class="text-[#4B6B65] text-sm flex items-center gap-1.5">
+                                    <span class="material-icons text-base">
+                                        flag
+                                    </span>
+                                    Approach
+                                </dt>
+
+                                <dd class="text-[#006F63] text-2xl font-bold mt-1">
+                                    Patient-led goals
+                                </dd>
+                            </div>
+
+                        </dl>
+                    </div>
+
+                    <!-- Header Image -->
+                    <div class="page-header-image relative">
+
+                        <!-- Decorative Background -->
+                        <div class="absolute inset-0
+                            translate-x-3 translate-y-3
+                            sm:translate-x-4 sm:translate-y-4
+                            rounded-3xl
+                            bg-[#BFE3DC]">
+                        </div>
+
+                        <!-- Image -->
+                        <div class="relative overflow-hidden rounded-3xl
+                            aspect-[16/9] lg:aspect-[16/10]">
+
+                            <img src="@Url.Content("~/Content/Pictures/Introduction.jpg")"
+                                 alt="Physical therapist assisting a patient during a rehabilitation session"
+                                 class="w-full h-full object-cover object-center" />
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Section #2: Approach -->
+        <section class="bg-[#006F63]" aria-labelledby="approach-title">
+            <div class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-16 lg:py-24">
+
+                <h2 id="approach-title" class="text-white text-3xl sm:text-4xl font-extrabold leading-tight max-w-2xl">
+                    How we approach every plan
+                </h2>
+
+                <ul class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 mt-12">
+
+                    <li>
+                        <span class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/15 text-white mb-5">
+                            <span class="material-icons text-4xl">flag</span>
+                        </span>
+
+                        <h3 class="text-white text-xl font-extrabold mb-2">Goals come first</h3>
+
+                        <p class="text-white leading-relaxed">
+                            Every plan starts with what you or your family member wants to achieve.
+                        </p>
+                    </li>
+
+                    <li>
+                        <span class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/15 text-white mb-5">
+                            <span class="material-icons text-4xl">person</span>
+                        </span>
+
+                        <h3 class="text-white text-xl font-extrabold mb-2">Shaped around the person</h3>
+
+                        <p class="text-white leading-relaxed">
+                            Rehabilitation means different things to different people, so no two plans need to look the same.
+                        </p>
+                    </li>
+
+                    <li>
+                        <span class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/15 text-white mb-5">
+                            <span class="material-icons text-4xl">home</span>
+                        </span>
+
+                        <h3 class="text-white text-xl font-extrabold mb-2">Relevant to daily life</h3>
+
+                        <p class="text-white leading-relaxed">
+                            We focus on skills that carry over to home, school, work, and everyday routines.
+                        </p>
+                    </li>
+
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section #3: Services -->
+        <section id="services" class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-16 lg:py-24">
+
+            <h2 class="text-[#006F63] text-3xl sm:text-4xl font-extrabold leading-tight max-w-2xl">
+                Three areas of care. Different paths toward meaningful goals.
+            </h2>
+
+            <ul class="mt-12">
+
+                <!-- Physical Therapy -->
+                <li class="grid grid-cols-1 lg:grid-cols-[auto_minmax(0,1fr)_minmax(0,1fr)] items-start gap-5 lg:gap-10 py-8 border-t border-[#D3E8E1]">
+                    <span class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-[#008C78] text-white">
+                        <span class="material-icons text-5xl">accessibility_new</span>
+                    </span>
+
+                    <div>
+                        <h3 class="text-[#006F63] text-2xl font-extrabold">Physical Therapy</h3>
+                        <p class="text-[#334155] text-base sm:text-lg leading-relaxed mt-2">
+                            Support for movement, mobility, strength, and physical recovery.
+                        </p>
+                    </div>
+
+                    <div>
+                        <p class="text-[#006F63] text-sm font-bold mb-3">Can help with</p>
+
+                        <ul class="flex flex-wrap gap-2">
+                            <li class="bg-[#EAF5F2] text-[#006F63] text-sm font-semibold px-3 py-1.5 rounded-full">Recovery after injury or surgery</li>
+                            <li class="bg-[#EAF5F2] text-[#006F63] text-sm font-semibold px-3 py-1.5 rounded-full">Balance and walking</li>
+                            <li class="bg-[#EAF5F2] text-[#006F63] text-sm font-semibold px-3 py-1.5 rounded-full">Strength and flexibility</li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- Occupational Therapy -->
+                <li class="grid grid-cols-1 lg:grid-cols-[auto_minmax(0,1fr)_minmax(0,1fr)] items-start gap-5 lg:gap-10 py-8 border-t border-[#D3E8E1]">
+                    <span class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-[#008C78] text-white">
+                        <span class="material-icons text-5xl">volunteer_activism</span>
+                    </span>
+
+                    <div>
+                        <h3 class="text-[#006F63] text-2xl font-extrabold">Occupational Therapy</h3>
+                        <p class="text-[#334155] text-base sm:text-lg leading-relaxed mt-2">
+                            Support for everyday activities, practical skills, and independence.
+                        </p>
+                    </div>
+
+                    <div>
+                        <p class="text-[#006F63] text-sm font-bold mb-3">Can help with</p>
+
+                        <ul class="flex flex-wrap gap-2">
+                            <li class="bg-[#EAF5F2] text-[#006F63] text-sm font-semibold px-3 py-1.5 rounded-full">Daily living skills</li>
+                            <li class="bg-[#EAF5F2] text-[#006F63] text-sm font-semibold px-3 py-1.5 rounded-full">Hand and fine motor function</li>
+                            <li class="bg-[#EAF5F2] text-[#006F63] text-sm font-semibold px-3 py-1.5 rounded-full">Routines at home, school, or work</li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- Speech Therapy -->
+                <li class="grid grid-cols-1 lg:grid-cols-[auto_minmax(0,1fr)_minmax(0,1fr)] items-start gap-5 lg:gap-10 py-8 border-y border-[#D3E8E1]">
+                    <span class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-[#008C78] text-white">
+                        <span class="material-icons text-5xl">record_voice_over</span>
+                    </span>
+
+                    <div>
+                        <h3 class="text-[#006F63] text-2xl font-extrabold">Speech Therapy</h3>
+                        <p class="text-[#334155] text-base sm:text-lg leading-relaxed mt-2">
+                            Support for speech, language, and communication skills.
+                        </p>
+                    </div>
+
+                    <div>
+                        <p class="text-[#006F63] text-sm font-bold mb-3">Can help with</p>
+
+                        <ul class="flex flex-wrap gap-2">
+                            <li class="bg-[#EAF5F2] text-[#006F63] text-sm font-semibold px-3 py-1.5 rounded-full">Clear speech and pronunciation</li>
+                            <li class="bg-[#EAF5F2] text-[#006F63] text-sm font-semibold px-3 py-1.5 rounded-full">Language development</li>
+                            <li class="bg-[#EAF5F2] text-[#006F63] text-sm font-semibold px-3 py-1.5 rounded-full">Everyday communication</li>
+                        </ul>
+                    </div>
+                </li>
+
+            </ul>
+        </section>
+
+        <!-- Section #4: Therapy Photos -->
+        <section class="bg-[#EAF5F2]">
+            <div class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-16 lg:py-24">
+
+                <h2 class="text-[#006F63] text-3xl sm:text-4xl font-extrabold">
+                    Therapy at Pacific Rehabilitation Center
+                </h2>
+
+                <p class="text-[#334155] leading-relaxed mt-4">
+                    Photos from each of our three services.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+
+                    <figure>
+                        <img src="@Url.Content("~/Content/Pictures/PT.jpg")"
+                             alt="Physical Therapy at Pacific Rehabilitation Center"
+                             class="w-full aspect-[4/3] object-cover object-center rounded-3xl" />
+                        <figcaption class="text-[#006F63] font-extrabold mt-4">Physical Therapy</figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="@Url.Content("~/Content/Pictures/OT.jpg")"
+                             alt="Occupational Therapy at Pacific Rehabilitation Center"
+                             class="w-full aspect-[4/3] object-cover object-center rounded-3xl" />
+                        <figcaption class="text-[#006F63] font-extrabold mt-4">Occupational Therapy</figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="@Url.Content("~/Content/Pictures/ST.jpg")"
+                             alt="Speech Therapy at Pacific Rehabilitation Center"
+                             class="w-full aspect-[4/3] object-cover object-center rounded-3xl" />
+                        <figcaption class="text-[#006F63] font-extrabold mt-4">Speech Therapy</figcaption>
+                    </figure>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Section #5: Organizational Structure -->
+        <section class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-16 lg:py-24">
+
+            <h2 class="text-[#006F63] text-3xl sm:text-4xl font-extrabold">
+                Our organizational structure
+            </h2>
+
+            <p class="text-[#334155] text-base sm:text-lg leading-relaxed mt-4 max-w-2xl">
+                From our officers and board to the therapists who work with patients every day. Our therapy team includes four occupational therapists, one physical therapist, and an occupational therapy assistant.
+            </p>
+
+            <div class="mt-12">
+
+                <!-- CEO -->
+                <div class="max-w-xs mx-auto">
+                    <div class="bg-[#006F63] rounded-3xl p-5 flex flex-col items-center text-center">
+                        <span class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white/15 text-white">
+                            <span class="material-icons text-5xl">person</span>
+                        </span>
+                        <p class="text-white font-extrabold mt-3">Joshua Trinidad</p>
+                        <p class="text-white text-sm mt-1">CEO / President</p>
+                    </div>
+                </div>
+
+                <div class="mx-auto w-0.5 h-6 bg-[#BFE0D6]"></div>
+
+                <!-- Executive Officers -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
+
+                    <div class="bg-[#EAF5F2] rounded-3xl p-5 text-center">
+                        <span class="material-icons text-5xl text-[#008C78]">person</span>
+                        <p class="text-[#006F63] font-extrabold mt-3">Mimi Bautista, MD</p>
+                        <p class="text-[#334155] text-sm mt-1">Vice President</p>
+                    </div>
+
+                    <div class="bg-[#EAF5F2] rounded-3xl p-5 text-center">
+                        <span class="material-icons text-5xl text-[#008C78]">person</span>
+                        <p class="text-[#006F63] font-extrabold mt-3">Anet Cadapan</p>
+                        <p class="text-[#334155] text-sm mt-1">Corporate Secretary</p>
+                    </div>
+
+                    <div class="bg-[#EAF5F2] rounded-3xl p-5 text-center">
+                        <span class="material-icons text-5xl text-[#008C78]">person</span>
+                        <p class="text-[#006F63] font-extrabold mt-3">Alicia Trinidad, RN</p>
+                        <p class="text-[#334155] text-sm mt-1">Chief Financial Officer</p>
+                    </div>
+
+                </div>
+
+                <div class="mx-auto w-0.5 h-6 bg-[#BFE0D6]"></div>
+
+                <!-- Board of Directors -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+
+                    <div class="bg-[#EAF5F2] rounded-3xl p-5 text-center">
+                        <span class="material-icons text-5xl text-[#008C78]">person</span>
+                        <p class="text-[#006F63] font-extrabold mt-3">Gayle Trinidad</p>
+                        <p class="text-[#334155] text-sm mt-1">Board of Directors</p>
+                    </div>
+
+                    <div class="bg-[#EAF5F2] rounded-3xl p-5 text-center">
+                        <span class="material-icons text-5xl text-[#008C78]">person</span>
+                        <p class="text-[#006F63] font-extrabold mt-3">Aileen Limjoco, MD</p>
+                        <p class="text-[#334155] text-sm mt-1">Board of Directors</p>
+                    </div>
+
+                </div>
+
+                <div class="mx-auto w-0.5 h-6 bg-[#BFE0D6]"></div>
+
+                <!-- Secretary -->
+                <div class="max-w-xs mx-auto">
+                    <div class="bg-[#EAF5F2] rounded-3xl p-5 text-center">
+                        <span class="material-icons text-5xl text-[#008C78]">person</span>
+                        <p class="text-[#006F63] font-extrabold mt-3">Rowena Basilo</p>
+                        <p class="text-[#334155] text-sm mt-1">Secretary</p>
+                    </div>
+                </div>
+
+                <div class="mx-auto w-0.5 h-6 bg-[#BFE0D6]"></div>
+
+                <!-- Therapists -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+
+                    <div class="bg-[#EAF5F2] rounded-3xl p-5 text-center">
+                        <span class="material-icons text-5xl text-[#008C78]">person</span>
+                        <p class="text-[#006F63] font-extrabold mt-3">Alexa Santos, OTRP</p>
+                        <p class="text-[#334155] text-sm mt-1">Occupational Therapist</p>
+                    </div>
+
+                    <div class="bg-[#EAF5F2] rounded-3xl p-5 text-center">
+                        <span class="material-icons text-5xl text-[#008C78]">person</span>
+                        <p class="text-[#006F63] font-extrabold mt-3">Dan Ligan, OTRP</p>
+                        <p class="text-[#334155] text-sm mt-1">Occupational Therapist</p>
+                    </div>
+
+                    <div class="bg-[#EAF5F2] rounded-3xl p-5 text-center">
+                        <span class="material-icons text-5xl text-[#008C78]">person</span>
+                        <p class="text-[#006F63] font-extrabold mt-3">MC Ortillano, OTRP</p>
+                        <p class="text-[#334155] text-sm mt-1">Occupational Therapist</p>
+                    </div>
+
+                    <div class="bg-[#EAF5F2] rounded-3xl p-5 text-center">
+                        <span class="material-icons text-5xl text-[#008C78]">person</span>
+                        <p class="text-[#006F63] font-extrabold mt-3">Yam Ortillano, OTRP</p>
+                        <p class="text-[#334155] text-sm mt-1">Occupational Therapist</p>
+                    </div>
+
+                    <div class="bg-[#EAF5F2] rounded-3xl p-5 text-center">
+                        <span class="material-icons text-5xl text-[#008C78]">person</span>
+                        <p class="text-[#006F63] font-extrabold mt-3">Mariel Francisco, PTRP</p>
+                        <p class="text-[#334155] text-sm mt-1">Physical Therapist</p>
+                    </div>
+
+                </div>
+
+                <div class="mx-auto w-0.5 h-6 bg-[#BFE0D6]"></div>
+
+                <!-- Assistant -->
+                <div class="max-w-xs mx-auto">
+                    <div class="bg-[#EAF5F2] rounded-3xl p-5 text-center">
+                        <span class="material-icons text-5xl text-[#008C78]">person</span>
+                        <p class="text-[#006F63] font-extrabold mt-3">Ella</p>
+                        <p class="text-[#334155] text-sm mt-1">Occupational Therapy Assistant</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section #6: Logo and Identity -->
+        <section class="bg-[#EAF5F2]">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
+
+                <div class="min-h-[380px] sm:min-h-[480px] lg:min-h-[600px] flex items-center justify-center px-8 py-16">
+                    <div class="w-64 h-64 sm:w-80 sm:h-80 bg-white rounded-full flex items-center justify-center">
+                        <img src="@Url.Content("~/Content/PRCLogo.png")"
+                             alt="Pacific Rehabilitation Center, Inc. logo"
+                             class="w-44 h-44 sm:w-56 sm:h-56 object-contain" />
+                    </div>
+                </div>
+
+                <div class="dark-panel bg-[#006F63] flex items-center px-5 sm:px-12 lg:px-16 py-16 lg:py-24">
+                    <div class="max-w-xl">
+
+                        <h2 class="text-white text-3xl sm:text-4xl font-extrabold">
+                            A symbol of Pacific Rehabilitation Center
+                        </h2>
+
+                        <p class="text-white text-base sm:text-lg leading-relaxed mt-6">
+                            Our logo identifies the center across its website and materials. It brings our name and services together in a visual identity patients and families can recognize.
+                        </p>
+
+                        <dl class="mt-9">
+                            <div class="border-t border-white/25 py-6">
+                                <dt class="text-white text-sm font-bold">Center name</dt>
+                                <dd class="text-white mt-1">Pacific Rehabilitation Center, Inc.</dd>
+                            </div>
+
+                            <div class="border-t border-white/25 py-6">
+                                <dt class="text-white text-sm font-bold">Services</dt>
+                                <dd class="text-white mt-1">Physical Therapy, Occupational Therapy, and Speech Therapy</dd>
+                            </div>
+
+                            <div class="border-t border-white/25 pt-6">
+                                <dt class="text-white text-sm font-bold">Visual palette</dt>
+                                <dd class="text-white mt-1">Teal and green tones connect the logo with the rest of the center’s visual identity.</dd>
+                            </div>
+                        </dl>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section #7: What to Expect -->
+        <section class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-16 lg:py-24">
+
+            <h2 class="text-[#006F63] text-3xl sm:text-4xl font-extrabold">
+                What to expect
+            </h2>
+
+            <p class="text-[#334155] leading-relaxed mt-4">
+                Three steps from your first message to a plan built around you.
+            </p>
+
+            <ol class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+
+                <li>
+                    <span class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#008C78] text-white">
+                        <span class="material-icons text-4xl">chat</span>
+                    </span>
+                    <p class="text-[#008C78] text-sm font-bold mt-5">Step 1</p>
+                    <h3 class="text-[#006F63] text-xl font-extrabold">Get in touch</h3>
+                    <p class="text-[#334155] mt-1">Tell us who the therapy is for and what you need help with.</p>
+                </li>
+
+                <li>
+                    <span class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#008C78] text-white">
+                        <span class="material-icons text-4xl">assignment</span>
+                    </span>
+                    <p class="text-[#008C78] text-sm font-bold mt-5">Step 2</p>
+                    <h3 class="text-[#006F63] text-xl font-extrabold">Meet your therapist</h3>
+                    <p class="text-[#334155] mt-1">Your therapist looks at your needs and sets goals with you.</p>
+                </li>
+
+                <li>
+                    <span class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#008C78] text-white">
+                        <span class="material-icons text-4xl">trending_up</span>
+                    </span>
+                    <p class="text-[#008C78] text-sm font-bold mt-5">Step 3</p>
+                    <h3 class="text-[#006F63] text-xl font-extrabold">Begin your plan</h3>
+                    <p class="text-[#334155] mt-1">Sessions follow your goals, and the plan changes as you progress.</p>
+                </li>
+
+            </ol>
+        </section>
+
+        <!-- Section #8: Closing -->
+        <section class="bg-[#EAF5F2]">
+            <div class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-16 lg:py-28 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+                <div>
+                    <img src="@Url.Content("~/Content/Pictures/Promotion.jpg")"
+                         alt="A physical therapist in blue scrubs assists a patient by supporting her shoulder and lower back in a rehabilitation clinic."
+                         class="w-full aspect-[4/5] object-cover object-center rounded-3xl" />
+                </div>
+
+                <div>
+                    <h2 class="text-[#006F63] text-lg sm:text-xl font-semibold">Our perspective</h2>
+
+                    <p class="text-[#00423B] text-3xl sm:text-4xl font-bold leading-tight mt-8">
+                        Progress is personal. Care should begin with the goals that matter to you.
+                    </p>
+
+                    <p class="text-[#334155] text-base sm:text-lg leading-relaxed mt-8">
+                        Whether you are exploring services for yourself or a family member, our team can help you learn more about the support available at Pacific Rehabilitation Center.
+                    </p>
+
+                    <a href="@Url.Action("Contact", "MainPages")"
+                       class="inline-flex items-center justify-center bg-[#006F63] hover:bg-[#00574D] text-white font-semibold px-7 py-3.5 rounded-xl mt-8">
+                        Talk to our team
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+</body>

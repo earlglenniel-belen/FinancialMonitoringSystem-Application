@@ -1,0 +1,229 @@
+﻿@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/_AuthenticationLayout.cshtml";
+}
+
+<body ng-controller="RegistrationController">
+
+    <div class="auth-form-wrapper">
+
+        <!-- Heading -->
+        <div class="auth-heading-block">
+            <span class="auth-eyebrow"><i class="material-icons">person_add</i> Patient Portal</span>
+            <h5 class="auth-heading">Create Account</h5>
+            <p class="auth-subheading">Fill in your details to get started</p>
+        </div>
+
+        <!-- Registration Form -->
+        <form>
+
+            <!-- First Name & Last Name -->
+            <div class="row" style="margin-bottom:0;">
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">person</i>
+                    <input id="txtFirstName" type="text" ng-model="txtFirstName" required />
+                    <label for="txtFirstName" class="required">First Name</label>
+                </div>
+
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">person_outline</i>
+                    <input id="txtLastName" type="text" ng-model="txtLastName" required />
+                    <label for="txtLastName" class="required">Last Name</label>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="row" style="margin-bottom:0;">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">email</i>
+                    <input id="txtEmail" type="text" ng-model="txtEmail" required />
+                    <label for="txtEmail" class="required">Email</label>
+                </div>
+            </div>
+
+            <!-- Password & Confirm Password -->
+            <div class="row" style="margin-bottom:0;">
+                <div class="input-field col s12 m6 password-field">
+                    <i class="material-icons prefix">lock</i>
+                    <input id="txtPassword" type="password" ng-model="txtPassword" required />
+                    <label for="txtPassword" class="required">Password</label>
+                    <i class="material-icons toggle-password" onclick="var pwd = document.getElementById('txtPassword'); var isHidden = pwd.type === 'password'; pwd.type = isHidden ? 'text' : 'password'; this.textContent = isHidden ? 'visibility_off' : 'visibility';">visibility</i>
+                </div>
+
+                <div class="input-field col s12 m6 password-field">
+                    <i class="material-icons prefix">lock_outline</i>
+                    <input id="txtConfirmPassword" type="password" ng-model="txtConfirmPassword" required />
+                    <label for="txtConfirmPassword" class="required">Confirm Password</label>
+                    <i class="material-icons toggle-password" onclick="var pwd = document.getElementById('txtConfirmPassword'); var isHidden = pwd.type === 'password'; pwd.type = isHidden ? 'text' : 'password'; this.textContent = isHidden ? 'visibility_off' : 'visibility';">visibility</i>
+                </div>
+            </div>
+
+            <!-- Birthday & Contact Number -->
+            <div class="row" style="margin-bottom:0;">
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">cake</i>
+                    <input id="dateBirthday" type="text" class="datepicker" ng-model="dateBirthday" required />
+                    <label for="dateBirthday" class="required">Birthday</label>
+                </div>
+
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">call</i>
+                    <input id="numContactNumber" type="tel" ng-model="numContactNumber" required />
+                    <label for="numContactNumber" class="required">Contact Number</label>
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="auth-actions">
+                <button type="button" class="btn btn-submit waves-effect waves-light" ng-click="btnRegister()">
+                    <i class="material-icons" style="font-size:19px;">how_to_reg</i>
+                    Submit
+                </button>
+            </div>
+
+        </form>
+
+        <!-- Login Link -->
+        <p class="auth-footer">
+            Already have an account?
+            <a href="@Url.Action("Login", "AuthenticationPages")">Login here.</a>
+        </p>
+
+        <!-- Divider -->
+        <div class="divider-row">
+            <hr />
+            <span>registered users</span>
+            <hr />
+        </div>
+
+        <!-- Registered Users -->
+        <div class="registration-table-wrapper">
+            <h6>
+                <i class="material-icons">groups</i>
+                Registration
+            </h6>
+
+            <table class="striped responsive-table">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Birthday</th>
+                        <th>Contact Number</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="udata in userArray">
+                        <td>{{udata.FirstName}}</td>
+                        <td>{{udata.LastName}}</td>
+                        <td>{{udata.Email}}</td>
+                        <td>{{udata.Birthday}}</td>
+                        <td>{{udata.ContactNum}}</td>
+                        <td>
+                            <button type="button" class="btn-small-action btn-small-edit" ng-click="btnEdit($index)">
+                                <i class="material-icons" style="font-size:15px;">edit</i>
+                                Edit
+                            </button>
+
+                            <button type="button" class="btn-small-action btn-small-delete" ng-click="btnDelete($index)">
+                                <i class="material-icons" style="font-size:15px;">delete</i>
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Edit User Modal -->
+        <!-- https://www.w3schools.com/angularjs/angularjs_ref_directives.asp -->
+        <div class="modal-backdrop-custom" ng-show="showEditModal" ng-cloak>
+            <div class="modal-box">
+
+                <!-- Heading -->
+                <h5>
+                    <i class="material-icons">edit</i>
+                    Edit User
+                </h5>
+
+                <!-- First Name -->
+                <div class="input-field">
+                    <label for="txtEditFirstName" class="static-label required">First Name</label>
+                    <div class="input-field-group">
+                        <i class="material-icons">person</i>
+                        <input id="txtEditFirstName" type="text" ng-model="txtEditFirstName" required />
+                    </div>
+                </div>
+
+                <!-- Last Name -->
+                <div class="input-field">
+                    <label for="txtEditLastName" class="static-label required">Last Name</label>
+                    <div class="input-field-group">
+                        <i class="material-icons">person_outline</i>
+                        <input id="txtEditLastName" type="text" ng-model="txtEditLastName" required />
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="input-field">
+                    <label for="txtEditEmail" class="static-label required">Email</label>
+                    <div class="input-field-group">
+                        <i class="material-icons">email</i>
+                        <input id="txtEditEmail" type="text" ng-model="txtEditEmail" required />
+                    </div>
+                </div>
+
+                <!-- Birthday -->
+                <div class="input-field">
+                    <label for="dateEditBirthday" class="static-label required">Birthday</label>
+                    <div class="input-field-group">
+                        <i class="material-icons">cake</i>
+                        <input id="dateEditBirthday" type="text" class="datepicker" ng-model="dateEditBirthday" required />
+                    </div>
+                </div>
+
+                <!-- Contact Number -->
+                <div class="input-field">
+                    <label for="numEditContactNumber" class="static-label required">Contact Number</label>
+                    <div class="input-field-group">
+                        <i class="material-icons">call</i>
+                        <input id="numEditContactNumber" type="tel" ng-model="numEditContactNumber" required />
+                    </div>
+                </div>
+
+                <!-- Modal Actions -->
+                <div class="modal-actions">
+                    <button type="button" class="btn-clear waves-effect" ng-click="btnCancelEdit()">
+                        <i class="material-icons" style="font-size:18px;">close</i>
+                        Cancel
+                    </button>
+
+                    <button type="button" class="btn btn-submit waves-effect waves-light" ng-click="btnSaveEdit()">
+                        <i class="material-icons" style="font-size:18px;">save</i>
+                        Save
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+<!-- Materialize Datepicker (https://materializecss.com/pickers.html) -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        var elems = document.querySelectorAll('.datepicker');
+
+        M.Datepicker.init(elems, {
+            maxDate: new Date(),
+            autoClose: true
+        });
+
+    });
+</script>

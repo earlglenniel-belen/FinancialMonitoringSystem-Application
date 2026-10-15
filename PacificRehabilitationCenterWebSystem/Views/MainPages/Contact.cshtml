@@ -1,0 +1,368 @@
+﻿@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<body>
+    <div class="contact-page">
+
+        <!-- Section #1: Header -->
+        <section class="bg-[#EAF5F2] border-b border-[#D3E8E1]" aria-labelledby="contact-title">
+            <div class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-10 lg:py-14">
+
+                <!-- Breadcrumb -->
+                <nav aria-label="Breadcrumb" class="text-sm font-semibold">
+                    <ol class="flex items-center gap-1 text-[#334155]">
+                        <li>
+                            <a href="@Url.Content("~/")"
+                               class="hover:text-[#006F63] underline-offset-4 hover:underline">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <span class="material-icons text-base align-middle">
+                                chevron_right
+                            </span>
+                        </li>
+
+                        <li class="text-[#006F63]">
+                            Contact
+                        </li>
+                    </ol>
+                </nav>
+
+                <!-- Header Content -->
+                <div class="page-header-enter grid grid-cols-1 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] gap-8 lg:gap-14 items-center mt-8">
+
+                    <!-- Header Copy -->
+                    <div class="page-header-copy">
+
+                        <h1 id="contact-title"
+                            class="text-[#006F63] text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.12] tracking-tight">
+                            Let’s start a conversation.
+                        </h1>
+
+                        <p class="text-[#334155] text-base sm:text-lg leading-relaxed max-w-2xl mt-5">
+                            Ask about our services, reach our team, or find the
+                            location that works for your visit.
+                        </p>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-wrap gap-3 mt-7">
+
+                            <a href="#contact-options"
+                               class="inline-flex items-center justify-center gap-2
+                              bg-[#008C78] hover:bg-[#006F63]
+                              text-white font-semibold
+                              px-7 py-3.5 rounded-xl
+                              transition-colors">
+
+                                Contact the Center
+
+                                <span class="material-icons text-lg">
+                                    arrow_downward
+                                </span>
+                            </a>
+
+                            <a href="#locations"
+                               class="inline-flex items-center justify-center gap-2
+                              border border-[#008C78]
+                              hover:bg-white
+                              text-[#006F63] font-semibold
+                              px-7 py-3.5 rounded-xl
+                              transition-colors">
+
+                                View Locations
+                            </a>
+
+                        </div>
+
+                        <!-- Information -->
+                        <dl class="flex flex-wrap gap-x-10 gap-y-5 mt-8 pt-7 border-t border-[#C8E2D9]">
+
+                            <!-- Contact Number -->
+                            <div>
+                                <dt class="text-[#4B6B65] text-sm flex items-center gap-1.5">
+                                    <span class="material-icons text-base">
+                                        call
+                                    </span>
+                                    Call us
+                                </dt>
+
+                                <dd class="mt-1">
+                                    <a href="tel:+63441234567"
+                                       class="text-[#006F63] text-xl font-bold">
+                                        (044) 123-4567
+                                    </a>
+                                </dd>
+                            </div>
+
+                            <!-- Office Hours -->
+                            <div>
+                                <dt class="text-[#4B6B65] text-sm flex items-center gap-1.5">
+                                    <span class="material-icons text-base">
+                                        schedule
+                                    </span>
+                                    Office hours
+                                </dt>
+
+                                <dd class="text-[#006F63] text-xl font-bold mt-1">
+                                    Mon–Sat
+                                </dd>
+                            </div>
+
+                            <!-- Locations -->
+                            <div>
+                                <dt class="text-[#4B6B65] text-sm flex items-center gap-1.5">
+                                    <span class="material-icons text-base">
+                                        location_on
+                                    </span>
+                                    Locations
+                                </dt>
+
+                                <dd class="text-[#006F63] text-xl font-bold mt-1">
+                                    Cabanatuan · San Fernando
+                                </dd>
+                            </div>
+
+                        </dl>
+                    </div>
+
+                    <!-- Header Image -->
+                    <div class="page-header-image relative">
+
+                        <!-- Decorative Background -->
+                        <div class="absolute inset-0
+                            translate-x-3 translate-y-3
+                            sm:translate-x-4 sm:translate-y-4
+                            rounded-3xl
+                            bg-[#BFE3DC]">
+                        </div>
+
+                        <!-- Image -->
+                        <div class="relative overflow-hidden rounded-3xl
+                            aspect-[16/9] lg:aspect-[16/10]">
+
+                            <img src="@Url.Content("~/Content/Clinic.jpg")"
+                                 alt="Pacific Rehabilitation Center clinic"
+                                 class="w-full h-full object-cover object-center" />
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Section #2: Contact Options -->
+        <section id="contact-options" class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-20 lg:py-28 scroll-mt-24">
+            <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] gap-14 lg:gap-20">
+
+                <div>
+                    <h2 class="text-[#006F63] text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+                        Connect in the way that works for you.
+                    </h2>
+
+                    <p class="text-[#00423B] text-base sm:text-lg leading-relaxed max-w-xl mt-6">
+                        Contact Pacific Rehabilitation Center, Inc. with questions about physical, occupational, or speech therapy.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
+
+                        <!-- Email -->
+                        <div class="bg-[#EAF5F2] rounded-3xl p-6">
+                            <span class="w-12 h-12 bg-white text-[#008C78] rounded-2xl flex items-center justify-center">
+                                <span class="material-icons">email</span>
+                            </span>
+
+                            <h3 class="text-[#006F63] text-xl font-bold mt-5">Email</h3>
+
+                            <p class="text-[#334155] mt-1">
+                                Best for questions about services and next steps.
+                            </p>
+
+                            <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40pacificrehabcenter.com"
+                               target="_blank"
+                               class="contact-link inline-flex items-center gap-2 text-[#008C78] font-semibold mt-5">
+                                info@pacificrehabcenter.com
+                                <span class="material-icons text-lg">north_east</span>
+                            </a>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="bg-[#EAF5F2] rounded-3xl p-6">
+                            <span class="w-12 h-12 bg-white text-[#008C78] rounded-2xl flex items-center justify-center">
+                                <span class="material-icons">phone</span>
+                            </span>
+
+                            <h3 class="text-[#006F63] text-xl font-bold mt-5">Phone</h3>
+
+                            <p class="text-[#334155] mt-1">
+                                Speak with our team directly.
+                            </p>
+
+                            <a href="tel:+63441234567"
+                               class="contact-link inline-flex items-center gap-2 text-[#008C78] font-semibold mt-5">
+                                (044) 123-4567
+                                <span class="material-icons text-lg">arrow_forward</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Office Hours -->
+                    <div class="bg-[#EAF5F2] rounded-3xl p-6 sm:p-7 mt-4">
+                        <div class="flex items-center gap-4">
+                            <span class="w-12 h-12 bg-white text-[#008C78] rounded-2xl flex items-center justify-center">
+                                <span class="material-icons">schedule</span>
+                            </span>
+                            <h3 class="text-[#006F63] text-xl font-bold">Office hours</h3>
+                        </div>
+
+                        <dl class="mt-5 divide-y divide-[#D3E8E1]">
+                            <div class="flex justify-between py-3">
+                                <dt class="text-[#334155]">Monday – Friday</dt>
+                                <dd class="text-[#006F63] font-semibold">8:00 AM – 5:00 PM</dd>
+                            </div>
+
+                            <div class="flex justify-between py-3">
+                                <dt class="text-[#334155]">Saturday</dt>
+                                <dd class="text-[#006F63] font-semibold">8:00 AM – 12:00 PM</dd>
+                            </div>
+
+                            <div class="flex justify-between py-3">
+                                <dt class="text-[#334155]">Sunday</dt>
+                                <dd class="text-[#006F63] font-semibold">Closed</dd>
+                            </div>
+                        </dl>
+
+                        <p class="text-[#4B6B65] text-sm mt-4">
+                            Walk-ins are welcome, though scheduling an appointment ahead of time is recommended.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Facebook -->
+                <div class="bg-white rounded-[2rem] border border-[#BBD9CE] overflow-hidden">
+
+                    <div class="flex items-center justify-between gap-4 px-6 py-5 border-b border-[#DCEBE6]">
+                        <div class="flex items-center gap-3">
+                            <span class="material-icons text-[#008C78]">public</span>
+                            <h3 class="text-[#006F63] text-lg font-bold">Latest from our Facebook page</h3>
+                        </div>
+
+                        <a href="https://www.facebook.com/pacificrehabcenter"
+                           target="_blank"
+                           class="text-[#008C78] font-semibold text-sm">
+                            Open
+                        </a>
+                    </div>
+
+                    <div class="bg-[#F5F8F7] flex justify-center min-h-[420px]">
+                        <iframe title="Pacific Rehabilitation Center on Facebook"
+                                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpacificrehabcenter&amp;tabs=timeline&amp;width=500&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true"
+                                class="block w-full max-w-[500px] min-h-[500px] border-0"
+                                scrolling="yes"
+                                loading="lazy">
+                        </iframe>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section #3: Locations -->
+        <section id="locations" class="bg-[#EAF5F2] py-20 lg:py-28 scroll-mt-24">
+            <div class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
+
+                <h2 class="text-[#006F63] text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-12">
+                    Find Pacific Rehabilitation Center.
+                </h2>
+
+                <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-6">
+
+                    <!-- Location Cards -->
+                    <div class="flex flex-col gap-6">
+
+                        <div class="bg-white rounded-3xl p-7 sm:p-9 flex-1">
+                            <div class="flex items-center gap-4">
+                                <span class="w-12 h-12 bg-[#EAF5F2] text-[#008C78] rounded-2xl flex items-center justify-center">
+                                    <span class="material-icons">location_on</span>
+                                </span>
+
+                                <h3 class="text-[#006F63] text-2xl font-bold">
+                                    Cabanatuan City, Nueva Ecija
+                                </h3>
+                            </div>
+
+                            <address class="not-italic text-[#00423B] text-base sm:text-lg leading-relaxed mt-6">
+                                Melencio Extension corner Doña Isabel Avenue<br />
+                                Barangay Kapitan Pepe<br />
+                                Cabanatuan City, Nueva Ecija
+                            </address>
+
+                            <a href="https://maps.app.goo.gl/ngARJZ2PMt8fkzsdA"
+                               target="_blank"
+                               class="inline-flex items-center gap-2 bg-[#008C78] hover:bg-[#006F63] text-white font-semibold px-7 py-3.5 rounded-xl mt-8">
+                                Get Directions
+                                <span class="material-icons text-lg">north_east</span>
+                            </a>
+                        </div>
+
+                        <div class="bg-white rounded-3xl p-7 sm:p-9 flex items-center gap-4">
+                            <span class="w-12 h-12 bg-[#EAF5F2] text-[#008C78] rounded-2xl flex items-center justify-center">
+                                <span class="material-icons">location_on</span>
+                            </span>
+
+                            <div>
+                                <h3 class="text-[#006F63] text-xl sm:text-2xl font-bold">
+                                    San Fernando City, Pampanga
+                                </h3>
+                                <p class="text-[#4B6B65] mt-1">Additional location</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Map -->
+                    <div class="rounded-3xl overflow-hidden bg-[#D7EBE4] min-h-[360px]">
+                        <iframe title="Map of Pacific Rehabilitation Center in Cabanatuan City"
+                                src="https://maps.google.com/maps?q=Pacific%20Rehabilitation%20Center%20Inc%2C%20Melencio%20Extension%20corner%20Do%C3%B1a%20Isabel%20Avenue%2C%20Cabanatuan%20City&amp;z=16&amp;output=embed"
+                                class="block w-full h-[360px] sm:h-[450px] lg:h-full lg:min-h-[520px] border-0"
+                                loading="lazy"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Section #4: Contact Invitation -->
+        <section class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-20 lg:py-28">
+            <div class="bg-[#006F63] rounded-[2rem] px-7 sm:px-12 lg:px-16 py-12 lg:py-16 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+
+                <div class="max-w-2xl">
+                    <h2 class="text-white text-3xl sm:text-4xl lg:text-5xl font-bold">
+                        Have a question before you visit?
+                    </h2>
+
+                    <p class="text-[#D7EBE4] text-base sm:text-lg leading-relaxed mt-5">
+                        Send us an email to ask about our services or the next steps for your visit.
+                    </p>
+                </div>
+
+                <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40pacificrehabcenter.com"
+                   target="_blank"
+                   class="inline-flex items-center justify-center gap-2 bg-white hover:bg-[#EAF5F2] text-[#006F63] font-semibold px-8 py-4 rounded-xl">
+                    Send an Email
+                    <span class="material-icons text-lg">arrow_forward</span>
+                </a>
+
+            </div>
+        </section>
+
+    </div>
+</body>

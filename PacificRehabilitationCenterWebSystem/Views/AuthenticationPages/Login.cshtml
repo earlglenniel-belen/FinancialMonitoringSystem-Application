@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_AuthenticationLayout.cshtml";
+}
+
+<body ng-controller="LoginController">
+
+    <div class="auth-form-wrapper">
+        <!-- Heading -->
+        <div class="auth-heading-block">
+            <span class="auth-eyebrow">
+                <i class="material-icons">favorite</i>
+                Patient Portal
+            </span>
+            <h5 class="auth-heading">Welcome Back</h5>
+            <p class="auth-subheading">Sign in to continue your care journey</p>
+        </div>
+
+        <!-- Login Form -->
+        <form>
+            <!-- Email -->
+            <div class="input-field">
+                <i class="material-icons prefix">email</i>
+                <input id="txtEmail" type="text" ng-model="txtEmail" required />
+                <label for="txtEmail" class="required">Email</label>
+            </div>
+
+            <!-- Password -->
+            <div class="input-field password-field">
+                <i class="material-icons prefix">lock</i>
+                <input id="txtPassword" type="password" ng-model="txtPassword" required />
+                <label for="txtPassword" class="required">Password</label>
+                <i class="material-icons toggle-password" onclick="
+                var pwd = document.getElementById('txtPassword');
+                var isHidden = pwd.type === 'password';
+                pwd.type = isHidden ? 'text' : 'password';
+                this.textContent = isHidden ? 'visibility_off' : 'visibility';
+            ">visibility</i>
+            </div>
+
+            <!-- Actions -->
+            <div class="auth-actions">
+                <button type="button" class="btn-clear waves-effect" ng-click="btnClear()">
+                    <i class="material-icons" style="font-size:19px;">clear</i>
+                    Clear
+                </button>
+                <button type="button" class="btn btn-submit waves-effect waves-light" ng-click="btnSubmit()">
+                    <i class="material-icons" style="font-size:19px;">login</i>
+                    Login
+                </button>
+            </div>
+        </form>
+
+        <!-- Divider -->
+        <div class="divider-row">
+            <hr />
+            <span>or</span>
+            <hr />
+        </div>
+
+        <!-- Google Sign In -->
+        <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" class="btn-google">
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" style="width:19px;height:19px;" />
+            <span>Sign in with Google</span>
+        </a>
+
+        <!-- Registration Link -->
+        <p class="auth-footer">
+            Don't have an account?
+            <a href="@Url.Action("Registration", "AuthenticationPages")">Register here.</a>
+        </p>
+    </div>
+
+</body>
